@@ -3,8 +3,7 @@ const user = JSON.parse(localStorage.getItem('User'))
 
 if(!user.sudahMasuk == true){
     user.nilai = nilai
-    user.sudahMasuk = true
-    user.opini = sessionStorage.getItem('opini')
+    user.opini = localStorage.getItem('opini')
     fetch('http://localhost:3000/end', {
         headers: {
             'Content-type': 'application/json'
@@ -12,6 +11,7 @@ if(!user.sudahMasuk == true){
         method: 'POST',
         body: JSON.stringify(user)
     })
+    user.sudahMasuk = true
     localStorage.setItem('User', JSON.stringify(user))
 } else {
     alert('Data tidak dimasukkan karena sudah ada!')
