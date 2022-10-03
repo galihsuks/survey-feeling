@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+}
+body {
+    display: flex;
+    justify-content: center;
+}
+body > div{
+    margin-block: 50px;
+    width: 75%;
+}
+.form {
+    margin-block: 20px;
+}
+.form-grup {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin-block: 10px;
+}
+input {
+    border: 0;
+    border-bottom: 2px solid black;
+    padding: 2px 4px;
+}
+input:hover {
+    border-bottom: 2px solid aqua;
+}
+
+button {
+    padding: 2px 4px;
+    background-color: black;
+    color: white;
+}
+button:hover {
+    background-color: aqua;
+    color: black;
+}
+
+.soal {
+    display: flex;
+    margin-top: 20px;
+}
+
+.audioIcon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+.audioIcon i {
+    font-size: 150px;
+    width: 95px;
+    margin-left: -25px;
+}
+.audioIcon p {
+    font-size: 50px;
+    height: 115px;
+    margin-top: 65px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.tengahkan {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.jwb {
+    margin-inline: 2px;
+    width: 20%;
+    padding-block: 10px;
+}
+
+#tmbMulai {
+    display: none;
+}
+#tmbMulai.active {
+    display: block;
+}
+#waktu {
+    display: none;
+    background-color: aqua;
+}
+#waktu.active {
+    display: block;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    margin-inline: 5px;
+}
+#tmbCoba {
+    display: none;
+}
+#tmbCoba.active {
+    display: block;
+}
+.active {
+    margin-inline: 2px;
+}

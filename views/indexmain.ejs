@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survei Feeling</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <h1>Kuesioner Survei Kemampuan<br>Pendengaran Chord Pada Anak Remaja</h1>
+        <p>Disediakan referensi chord yaitu chord C, coba tebak chord yang ada dikanan! Setiap soal diberi waktu 5 detik. Tolong jangan pakek alat bantu apapun ya adik-adikk, gk susah kokk:)</p>
+        <div class="soal">
+            <section class="audioIcon" id="audioIcon1">
+                <i class="material-icons">audiotrack</i>
+                <p class="chordSoal">C</p>
+            </section>
+            <section class="audioIcon" id="audioIcon2">
+                <i class="material-icons">audiotrack</i>
+                <p class="chordSoal">?</p>
+            </section>
+        </div>
+        <div class="tengahkan">
+            <p id="benar">Benar:</p>
+            <button id="tmbMulai" class="active">Mulai!</button>
+            <p class="waktu" id="waktu">00:05</p>
+            <button id="tmbCoba" class="active">Coba dulu</button>
+            <p id="salah">Salah:</p>
+        </div>
+        <div class="tengahkan">
+            <button class="jwb" data-jwb="chordDm">Dm</button>
+            <button class="jwb" data-jwb="chordEm">Em</button>
+            <button class="jwb" data-jwb="chordF">F</button>
+            <button class="jwb" data-jwb="chordG">G</button>
+            <button class="jwb" data-jwb="chordAm">Am</button>
+        </div>
+    </div>
+    <script src="js/scriptmain.js"></script>
+</body>
+</html>
