@@ -4,7 +4,7 @@ const user = JSON.parse(localStorage.getItem('User'))
 if(!user.sudahMasuk == true){
     user.nilai = nilai
     user.opini = localStorage.getItem('opini')
-    fetch('http://localhost:3000/end', {
+    fetch('https://survey-feeling.herokuapp.com/end', {
         headers: {
             'Content-type': 'application/json'
         },
