@@ -12,10 +12,10 @@
     <div>
         <h1>Kuesioner Survei Kemampuan<br>Pendengaran Chord Pada Anak Remaja</h1>
         <p>Tolong isi koesioner ini dengan jujur ya adik-adik, biar datanya valid. Makasihh:)</p>
-        <form class="form" action="#" id="form">
+        <form class="form" action="/awal/masukan" method="post" id="form">
             <div class="form-grup">
                 <label for="umur">Umurmu berapa?</label>
-                <input type="text" name="umur" id="umur" required class="masukin">
+                <input type="number" name="umur" id="umur" required class="masukin">
             </div>
             <div class="form-grup">
                 <label for="sekolah">Nama sekolahmu apa?</label>
@@ -29,8 +29,8 @@
                 <label for="cekfeeling">Kamu bisa feeling chord?</label>
                 <input type="text" name="cekfeeling" id="cekfeeling" required class="masukin">
             </div>
+            <button type="submit" id="tmbmain">Yuk main tebak chord</button>
         </form>
-        <button id="tmbmain">Yuk main tebak chord</button>
     </div>
     <script src="js/script.js"></script>
 </body>

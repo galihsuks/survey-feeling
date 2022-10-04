@@ -12,14 +12,13 @@
 <body>
     <div>
         <h1>Kuesioner Survei Kemampuan<br>Pendengaran Chord Pada Anak Remaja</h1>
-        <form class="form" action="#" id="form">
+        <form class="form" action="/praend/masukan" method="post" id="form">
             <div class="form-grup">
-                <label for="tambahan">Menurutmu kalau ada aplikasi untuk melatih feeling kamu pengen nyoba nggk? (opsional)</label>
-                <input type="text" name="tambahan" id="tambahan" required autofocus>
+                <label for="opini"><%= text %></label>
+                <input type="text" name="opini" id="tambahan" required autofocus>
             </div>
+            <button id="end" type="submit">Akhirnya selsai juga</button>
         </form>
-        <button id="end">Akhirnya selsai juga</button>
     </div>
-    <script src="js/scriptpraend.js"></script>
 </body>
 </html>

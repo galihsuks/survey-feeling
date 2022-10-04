@@ -4,11 +4,17 @@ const masukin = document.querySelectorAll('.masukin')
 let ceklocalstorage = false;
 document.addEventListener('DOMContentLoaded',()=>{
     isStorageExist()
-    if(!(localStorage.getItem('User')==''||localStorage.getItem('User')==null)){
+    if(!(localStorage.getItem('cekudah')=='0'||localStorage.getItem('User')==null)){
         ceklocalstorage = true;
         alert('Kamu sudah pernah ngisi!')
+        document.getElementById('form').setAttribute('action','/')
+        document.getElementById('form').removeAttribute('method')
+
     }
-    sessionStorage.setItem('cek','0')
+    if(!ceklocalstorage) {
+        localStorage.setItem('cekudah','0')
+        tmbmain.classList.add('active')
+    }
 })
 
 tmbmain.addEventListener('click',()=>{
@@ -27,8 +33,7 @@ tmbmain.addEventListener('click',()=>{
             const user = generateUser(arr[0],arr[1],arr[2],arr[3])
             console.log(user)
             localStorage.setItem('User',JSON.stringify(user))
-            sessionStorage.setItem('cek','1')
-            location.replace("./main")
+            localStorage.setItem('cekudah','1')
         }
     }
 })

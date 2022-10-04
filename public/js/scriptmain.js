@@ -189,7 +189,7 @@ tmbCoba.addEventListener('click',()=>{
 })
 
 tmbMulai.addEventListener('click',()=>{
-    if(sessionStorage.getItem('cek') == '1'){
+    if(localStorage.getItem('cekudah') == '1'){
         tmbMulai.classList.remove('active')
         tmbCoba.classList.remove('active')
         waktu.classList.add('active')
@@ -273,26 +273,26 @@ jwb.forEach((a)=>{
 function gantinomor() {
     if(nomor < 4){
         nomor += 1;
+        detik = 6;
+        console.log('nomor:'+nomor)
+        beritau = false
+        chordC.load();
+        chordC.play();
+        audioIcon1.style = 'color: aqua';
+        setTimeout(()=>{audioIcon1.style = 'color: black';},1000)
+        setTimeout(() => {
+            eval(chords[countRand[nomor]]+".load()")
+            eval(chords[countRand[nomor]]+".play()")
+            audioIcon2.style = 'color: aqua';
+            setTimeout(()=>{audioIcon2.style = 'color: black';},1000)
+        }, 500);
     } else {
         if(mulai){
-            sessionStorage.setItem('cek','2')
-            localStorage.setItem('nilai',jwbbenar.toString())
-            location.replace("./praend")
+            localStorage.setItem('cekudah','2')
+            document.getElementById('nilai').value = jwbbenar.toString()
+            document.getElementById('tmbLanjut').classList.add('active')
         } else if(coba){
-            location.replace("./main")
+            location.reload()
         }
     }
-    detik = 6;
-    console.log('nomor:'+nomor)
-    beritau = false
-    chordC.load();
-    chordC.play();
-    audioIcon1.style = 'color: aqua';
-    setTimeout(()=>{audioIcon1.style = 'color: black';},1000)
-    setTimeout(() => {
-        eval(chords[countRand[nomor]]+".load()")
-        eval(chords[countRand[nomor]]+".play()")
-        audioIcon2.style = 'color: aqua';
-        setTimeout(()=>{audioIcon2.style = 'color: black';},1000)
-    }, 500);
 }
