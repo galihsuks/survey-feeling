@@ -1,16 +1,16 @@
 const express = require('express')
 const app = express()
 const port = 3000;
-const mongoose = require('mongoose')
-const User = require('./models/user')
-//const Datastore = require('nedb')
+// const mongoose = require('mongoose')
+// const User = require('./models/user')
+const Datastore = require('nedb')
 
 let dataPenuh = {}
 
-const dbURI = 'mongodb+srv://galihsuks:amehmlebu@cluster0.fuypmdz.mongodb.net/user-data?retryWrites=true&w=majority'
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => app.listen(process.env.PORT || port, () => console.log(`Listening at localhost:${port}`)))
-    .catch((err) => console.log(err))
+// const dbURI = 'mongodb+srv://galihsuks:amehmlebu@cluster0.fuypmdz.mongodb.net/user-data?retryWrites=true&w=majority'
+// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then((result) => console.log('berhasil konek mongodb..'))
+//     .catch((err) => console.log(err))
 
 app.use(express.json())
 app.use(express.static('public'))
@@ -60,45 +60,30 @@ app.post('/praend/masukan',(req,res)=>{
     res.redirect('/end')
 })
 
-// const database = new Datastore('database.db')
-// database.loadDatabase()
-
-app.post('/end',(req,res)=>{
-    console.log(req.body)
-    const user = new User({
-        umur: req.body.umur,
-        sekolah: req.body.sekolah,
-        main: req.body.main,
-        feeling: req.body.feeling,
-        nilai: req.body.nilai,
-        opini: req.body.opini
-    })
-
-    user.save()
-        .then((result)=>{
-            console.log(result)
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
-    //database.insert(req.body)
-})
+const database = new Datastore('database.db')
+database.loadDatabase()
 
 app.get('/end',(req,res)=>{
-    const user = new User({
-        umur: dataPenuh.umur,
-        sekolah: dataPenuh.sekolah,
-        main: dataPenuh.main,
-        feeling: dataPenuh.feeling,
-        nilai: dataPenuh.nilai,
-        opini: dataPenuh.opini
-    })
-    user.save()
-        .then((result)=>{
-            console.log(result)
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
+    // const user = new User({
+    //     umur: dataPenuh.umur,
+    //     sekolah: dataPenuh.sekolah,
+    //     main: dataPenuh.main,
+    //     feeling: dataPenuh.feeling,
+    //     nilai: dataPenuh.nilai,
+    //     opini: dataPenuh.opini
+    // })
+    // user.save()
+    //     .then((result)=>{
+    //         console.log(result)
+    //     })
+    //     .catch((err)=>{
+    //         console.log(err)
+    //     })
+    if(!("checking" in dataPenuh) && ("opini" in dataPenuh))
+        database.insert(dataPenuh)
+    dataPenuh.checking = true;
+    console.log(dataPenuh)
     res.render('indexend.ejs')
 })
+
+app.listen(process.env.PORT || port, () => console.log(`Listening at localhost:${port}`))
